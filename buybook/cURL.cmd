@@ -1,0 +1,18 @@
+curl 'https://member.readmoo.com/login' \
+  -H 'authority: member.readmoo.com' \
+  -H 'sec-ch-ua: " Not A;Brand";v="99", "Chromium";v="90", "Google Chrome";v="90"' \
+  -H 'accept: application/json' \
+  -H 'dnt: 1' \
+  -H 'x-requested-with: XMLHttpRequest' \
+  -H 'sec-ch-ua-mobile: ?0' \
+  -H 'user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.212 Safari/537.36' \
+  -H 'content-type: multipart/form-data; boundary=----WebKitFormBoundary84oKoJBQcpODyNyQ' \
+  -H 'origin: https://member.readmoo.com' \
+  -H 'sec-fetch-site: same-origin' \
+  -H 'sec-fetch-mode: cors' \
+  -H 'sec-fetch-dest: empty' \
+  -H 'referer: https://member.readmoo.com/login/aHR0cHM6Ly9zaGFyZS5yZWFkbW9vLmNvbS9tZS9ib29rc2hlbGYvdG90YWw' \
+  -H 'accept-language: zh-TW,zh;q=0.9,en-US;q=0.8,en;q=0.7' \
+  -H 'cookie: __auc=684d852517852ce4d5086aea099; _fbp=fb.1.1616296955826.211026155; _qg_fts=1616296957; QGUserId=2324264326055694; _gcl_au=1.1.421152233.1616296959; _ga=GA1.3.1920377172.1616296960; _ga=GA1.2.1920377172.1616296960; aiq_cs_22c6932429d7219472ff=[%22https:%22%2C%22readmoo.com%22%2Cnull%2C[[null%2C%22b%22]]]; _gcl_aw=GCL.1618021881.CjwKCAjw9r-DBhBxEiwA9qYUpUrYI5TvDjhNWrY98S1ormLXVsRQiZJk6OkHGFVqDt2H626wg0Vz4hoCKHcQAvD_BwE; readmoo=kd45i4bo83f1m7kr78eml9l7p3lbffs9; __asc=507ee73f1796e9b0306e7e75e05; _qg_cm=1; AWSALB=141Xaky5UR9S/DizuSjjoRnhyxJah6uJteC3VHSY8iGEGfldcLp5yQoNF0kKQ8acFXIEmgPhsKAN3Dzh5NPgLJ8PjtVmiPyeX0vzre1QFqpinhO/OPC5honH7WnZ; _gid=GA1.3.417843594.1621058328; _gat_UA-33437355-1=1; _gid=GA1.2.417843594.1621058328' \
+  --data-raw $'------WebKitFormBoundary84oKoJBQcpODyNyQ\r\nContent-Disposition: form-data; name="email"\r\n\r\ncicicici.hsiao@gmail.com\r\n------WebKitFormBoundary84oKoJBQcpODyNyQ\r\nContent-Disposition: form-data; name="password"\r\n\r\n6zcrUFtVmU4x\r\n------WebKitFormBoundary84oKoJBQcpODyNyQ\r\nContent-Disposition: form-data; name="remember"\r\n\r\n1\r\n------WebKitFormBoundary84oKoJBQcpODyNyQ\r\nContent-Disposition: form-data; name="token"\r\n\r\n03AGdBq26oLMcUnF_Vgjj2rZGIO5mNfv-sqHUIc7qNk_JvIS-7M0cxcyfug3hsMLVHG-i6NDI4xH7UqQ8Y6ac6BiTlb0IY5EsKY0kP9L0N8F9lgwuWRDmDTr7IN8rDgvR3h6K_qDU9-Z4LX1hj4aJav6h2bw6U6iE1uxf1lB7i_qxJ5w32YZilAsuKdWe_C2I21L691XlJSvgGiL8IfzySwyHjincz7IUfycziEQAMeZ8PWw3BR_-BdU4fuEhgE2irx1eW8joACqIigM7kM2-IqiViOrdmrU-TL16bDVp_iXXwb7bw61IJaja_RSfm-Wu_mUKTjXlZ21dcOacqJ-t0yOSOEMNu-am_auHUYQO5mXXgorFsf3GmPoHb9Q2ZAXlwdL2r4EKwQbkGEcZTzYs7--MA4UyJKnMlUSIxFeOy2VfqHWindcAM5x3tkqcvatwK1b4i1GfWP6OorztRaH6sI4APp7KV6ZQw4A\r\n------WebKitFormBoundary84oKoJBQcpODyNyQ\r\nContent-Disposition: form-data; name="version"\r\n\r\n3\r\n------WebKitFormBoundary84oKoJBQcpODyNyQ--\r\n' \
+  --compressed

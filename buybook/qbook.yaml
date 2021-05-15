@@ -1,0 +1,118 @@
+--- 
+#shelf:
+#  Readmoo_share:
+#    auth:
+#      url: https://member.readmoo.com/login
+#      curl_cmd: "./cURL.cmd"
+#    query:
+#      url: https://share.readmoo.com/me/bookshelf/total
+#      params: None
+#    book:
+#      booklist: None
+#        selector: None
+#        content_type: tag
+#      title:
+#        selector: None
+#        content_type: string
+#      blink:
+#        selector: None
+#        content_type: attribute(href)
+#      desc:
+#        selector: None
+#        content_type: string
+#      isbn:
+#        selector: None
+#        content_type: string
+search:
+  Kobo:
+    query:
+      url: https://www.kobo.com/tw/zh/search
+      params:
+        fcmedia: Book
+        query: $title
+    book:
+      booklist:
+        selector: "body > div.kobo-main > div.two-column-left-full-aside > div.inner-wrap > div.columns-wrapper > div.column.column-main.content-main > div.SearchResultsWidget > section > div > ul > li:nth-child(1)"
+        content_type: tag
+      title:
+        selector: "body > div.kobo-main > div.two-column-left-full-aside > div.inner-wrap > div.columns-wrapper > div.column.column-main.content-main > div.SearchResultsWidget > section > div > ul > li:nth-child(1) > div > div.item-info > h2 > a"
+        content_type: string
+      blink:
+        selector: "body > div.kobo-main > div.two-column-left-full-aside > div.inner-wrap > div.columns-wrapper > div.column.column-main.content-main > div.SearchResultsWidget > section > div > ul > li:nth-child(1) > div > div.item-info > h2 > a"
+        content_type: attribute(href)
+      desc:
+        selector: "body > div.kobo-main > div.two-column-left-full-aside > div.inner-wrap > div.columns-wrapper > div.column.column-main.content-main > div.SearchResultsWidget > section > div > ul > li:nth-child(1) > div > div.item-info > div.synopsis > span.synopsis-text"
+        content_type: string
+      price:
+        selector:  "body > div.kobo-main > div.two-column-left-full-aside > div.inner-wrap > div.columns-wrapper > div.column.column-main.content-main > div.SearchResultsWidget > section > div > ul > li:nth-child(1) > div > div.item-info > p.product-field.price > span > span:nth-child(1)"
+        content_type: text
+  Readmoo:
+    query:
+      url: https://readmoo.com/search/keyword
+      params:
+        q: $title
+        kw: $title
+        pi: "0"
+        st: "true"
+    book:
+      booklist:
+        selector: li.listItem-box.swiper-slide
+        ccontent_type: tag
+      title:
+        selector: div[class='caption'] > h4[itemprop='name'] > a
+        content_type: string
+      blink:
+        selector: div[class='caption'] > h4[itemprop='name'] > a
+        content_type: attribute(href)
+      desc:
+        selector: p[class='description']
+        content_type: string
+      price:
+        selector: strong[itemprop='price']
+        content_type: string
+  Google:
+    query:
+      url: https://play.google.com/store/search
+      params:
+        q: $title
+        c: books
+        hl: zh_TW
+        gl: TW
+    book:
+      booklist:
+        selector: div.ImZGtf.mpg5gc
+        ccontent_type: tag
+      title:
+        selector: div[class='WsMG1c nnK0zc']
+        content_type: string
+      blink:
+        selector: a[class='JC71ub']
+        content_type: attribute(href)
+      desc:
+        selector: div.b8cIId.f5NCO > a
+        content_type: text
+      price:
+        selector: span.VfPpfd.ZdBevf.i5DZme > span
+        content_type: text
+  Pubu:
+    query:
+      url: https://www.pubu.com.tw/search/ebook
+      params:
+        q: $title
+        condition: "fl_file%3Depub"
+    book:
+      booklist:
+        selector: "#search-list-content > article:nth-child(2)"
+        ccontent_type: tag
+      title:
+        selector: "#search-list-content > article:nth-child(2) > div.searchResultContent > h2 > a"
+        content_type: text
+      blink:
+        selector: "#search-list-content > article:nth-child(2) > div.searchResultContent > h2 > a"
+        content_type: attribute(href)
+      desc:
+        selector: "#search-list-content > article:nth-child(2) > div.searchResultContent > p.info"
+        content_type: text
+      price:
+        selector: "#search-list-content > article:nth-child(2) > div.searchResultContent > ul > li > span"
+        content_type: text
