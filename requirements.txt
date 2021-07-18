@@ -1,0 +1,9 @@
+pandas~=1.2.5
+tabulate~=0.8.9
+pyyaml~=3.13
+pika~=1.2.0
+flask~=1.1.2
+requests~=2.19.1
+numpy~=1.20.2
+beautifulsoup4~=4.9.3
+lxml~=4.6.3
