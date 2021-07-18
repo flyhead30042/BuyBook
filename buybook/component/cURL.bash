@@ -1,0 +1,18 @@
+curl 'https://member.readmoo.com/login' \
+  -H 'authority: member.readmoo.com' \
+  -H 'sec-ch-ua: " Not;A Brand";v="99", "Google Chrome";v="91", "Chromium";v="91"' \
+  -H 'accept: application/json' \
+  -H 'dnt: 1' \
+  -H 'x-requested-with: XMLHttpRequest' \
+  -H 'sec-ch-ua-mobile: ?0' \
+  -H 'user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36' \
+  -H 'content-type: multipart/form-data; boundary=----WebKitFormBoundary4TzmQt8cqbhihpap' \
+  -H 'origin: https://member.readmoo.com' \
+  -H 'sec-fetch-site: same-origin' \
+  -H 'sec-fetch-mode: cors' \
+  -H 'sec-fetch-dest: empty' \
+  -H 'referer: https://member.readmoo.com/login/aHR0cHM6Ly9zaGFyZS5yZWFkbW9vLmNvbS9tZS9ib29rc2hlbGYvdG90YWw' \
+  -H 'accept-language: zh-TW,zh;q=0.9,en-US;q=0.8,en;q=0.7' \
+  -H 'cookie: __auc=684d852517852ce4d5086aea099; _fbp=fb.1.1616296955826.211026155; _qg_fts=1616296957; QGUserId=2324264326055694; _ga=GA1.3.1920377172.1616296960; _ga=GA1.2.1920377172.1616296960; aiq_cs_22c6932429d7219472ff=[%22https:%22%2C%22readmoo.com%22%2Cnull%2C[[null%2C%22b%22]]]; _gcl_au=1.1.1908093254.1624459177; _qg_cm=1; _gcl_aw=GCL.1626000423.Cj0KCQjwraqHBhDsARIsAKuGZeHe0XJ3ifoUdpEGrpm_iMcLMkl9MBjJj3GZQz2c0GgKAJO1gR1WK5AaAgumEALw_wcB; __asc=7690479217ab74ea41de4899d48; readmoo=n8ot57tuq8nu7j1kgsb5rmfjbm1ka3n3; _gid=GA1.3.172088014.1626573056; _gat_UA-33437355-1=1; _gid=GA1.2.172088014.1626573056' \
+  --data-raw $'------WebKitFormBoundary4TzmQt8cqbhihpap\r\nContent-Disposition: form-data; name="email"\r\n\r\ncicicici.hsiao@gmail.com\r\n------WebKitFormBoundary4TzmQt8cqbhihpap\r\nContent-Disposition: form-data; name="password"\r\n\r\n6zcrUFtVmU4x\r\n------WebKitFormBoundary4TzmQt8cqbhihpap\r\nContent-Disposition: form-data; name="token"\r\n\r\n03AGdBq24nZm3jnvRgtQUnkc-qM7oBrsdTiQcl3s8jLZAks6eDu7752hNx2vAn238OUHG1XoeH8WvKfbMWL_wKDSjV3fNVa6tvBfHojtkdNInYxUBLmyecfnvyNlqc9jAztLRjhO3pIg6zwIkxo1hQfncOeGvHvliB5hwNyu5E6Zu_Kjh_lZbtutuxs0XxiPNMxd0KLvdX9UPDoyMMzhASoIEMWXXsHxpfOLE1SSqgDOgerTDgsWlzTDwIkn1e-YMn7BzUpgF-pOzjpKQ_EyIjmRtud2gVz6O6MLoeBu6-e4lRenK_sddsauS0QLRx3y8yTPtQYvH1r8U3nAGG25j7d__LrJ-La1TabueYzqz6rr9syp2LFPR3nFoPq484DV8AzX-HgFH2qBRmAP4m8NyOAkS3ajxXBpqH92L-v67g8GSNsG5aU4I4gSCrtwyAhnyk7Ek3j7--JIbZvh0KpqF71Yq-u06EzPmCJg\r\n------WebKitFormBoundary4TzmQt8cqbhihpap\r\nContent-Disposition: form-data; name="version"\r\n\r\n3\r\n------WebKitFormBoundary4TzmQt8cqbhihpap--\r\n' \
+  --compressed
