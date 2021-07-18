@@ -1,0 +1,46 @@
+version: '3.9'
+services:
+
+  rabbitmq:
+    image: rabbitmq:3-management
+    ports:
+      - "15672:15672"
+      - "5672:5672"
+
+  worker:
+    build: .
+    image: buybook:1
+    environment:
+      RABBITMQ_USER: "guest"
+      RABBITMQ_PASSWORD: "guest"
+      RABBITMQ_HOST: "rabbitmq"
+      RABBITMQ_PORT: "5672"
+      RABBITMQ_ROUTINGKEY: "buybook_search"
+      PYTHONPATH: "/usr/local/BuyBook:${PYTHONPATH}"
+    volumes:
+      - .:/usr/local/BuyBook
+      - D:\\workspace\\citest\\BuyBook\\buybook\\component\cURL.bash:/usr/local/BuyBook/buybook/component/cURL.bash
+    command: "python -m buybook.worker"
+    depends_on:
+      - rabbitmq
+
+  web_client:
+    image: buybook:1
+    ports:
+      - "5000:5000"
+    environment:
+      FLASK_ENV: development
+      FLASK_APP: "buybook/web_client.py"
+#      ENV FLASK_RUN_HOST: "0.0.0.0"
+      RABBITMQ_USER: "guest"
+      RABBITMQ_PASSWORD: "guest"
+      RABBITMQ_HOST: "rabbitmq"
+      RABBITMQ_PORT: "5672"
+      RABBITMQ_ROUTINGKEY: "buybook_search"
+      PYTHONPATH: "/usr/local/BuyBook:${PYTHONPATH}"
+    volumes:
+      - .:/usr/local/BuyBook
+    command: "python -m flask run -h 0.0.0.0"
+    depends_on:
+      - rabbitmq
+
