@@ -48,21 +48,21 @@ class Basebooksearch(object):
 
     def clean_price(self, price_text:str) -> int:
         '''
-        remove $ from the price text and convert to NTD
+        remove dollor sign from the price text and convert to number
+        # Kobo:  "NT$xxx  TWD"
+        # Google: "$xxx" or "免費"
         :param t: price text
         :return: price
         '''
 
-        # Kobo
-        price_text1 = price_text.replace("NT$", "")
-        # Google
-        price_text2 = price_text1.replace("$", "")
+        price_text_1 = price_text.replace("NT$", "").replace("TWD", "").replace("$", "").replace("免費", "0").strip()
 
         try:
-            price = 0 if price_text2 == "免費" else round(float(price_text2))
+            price = round(float(price_text_1))
         except Exception:
-            logger.error("price_text ={:s} {:s} {:s}".format(price_text, price_text1, price_text2))
+            logger.exception(f"price_text={price_text},price_text_1={price_text_1}")
             return 0
+
         return price
 
 

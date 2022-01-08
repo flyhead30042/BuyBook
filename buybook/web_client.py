@@ -73,7 +73,7 @@ def send(keyword: str):
     while cb.response is None:
         connection.process_data_events()
 
-    logger.info(f" [6] Receive {cb.response}")
+    logger.info(f" [6] Receive {cb.response} with with length {len(cb.response)}")
     return render_template(
         "buybook.html",
         table= json.loads(cb.response))

@@ -50,8 +50,10 @@ def search_book(q:Union[str, pd.DataFrame]):
     wanted_books = pd.DataFrame({"title": [q], "blink": ["N/A"], "isbn": ["N/A"]}) if isinstance(q, str) else q
     qb = QBook(wanted_books=wanted_books, booksearch=bsearch)
     wishlist = qb.to_wishlist()
+    wishlist = wishlist.sort_values(by=["title", "price"])
     # wishlist.drop(["searching", "blink", "desc", "highlight"], axis="columns", inplace=True)
     wishlist.drop(["searching", "highlight"], axis="columns", inplace=True)
+
     return wishlist.to_json(orient="records")
 
 
@@ -68,7 +70,7 @@ def receive():
             logger.error(" [-1] Either q is None or MyBookself login failure...")
             response = "Either q is None or MyBookself login failure..."
 
-        logger.info(f" [4] Receive result and send to Callback{props.correlation_id}")
+        logger.info(f" [4] Receive result with length {len(response)} and send to Callback{props.correlation_id}")
         channel.basic_publish(exchange='',
                      routing_key=props.reply_to,
                      properties=pika.BasicProperties(correlation_id=props.correlation_id),

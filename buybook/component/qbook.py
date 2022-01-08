@@ -51,9 +51,8 @@ class QBook(NamedTuple):
         wishlist["highlight"] = wishlist.apply(self.highlight_book, axis=1)
         wishlist = wishlist[wishlist["highlight"] == True]
 
-
         # sory by price
-        wishlist = wishlist.sort_values(by=["title", "price", "source"])
+        # wishlist = wishlist.sort_values(by=["title", "price"])
         # logger.debug(wishlist.to_string())
 
         return wishlist

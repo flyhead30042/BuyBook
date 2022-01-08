@@ -108,9 +108,9 @@ class Book(dict):
 
         t = self.tag.select_one(selector)
         if content_type == "string":
-            return t.string
+            return str.strip(t.string)
         elif content_type == "text":
-            return t.text
+            return str.strip(t.text)
         elif content_type.startswith("attribute"):
             z = re.search(pattern, content_type)
             return t[z.groups()[0]]

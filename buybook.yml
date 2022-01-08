@@ -9,37 +9,38 @@ services:
 
   worker:
     build: .
-    image: buybook:1
+    image: flyhead/buybook:1
     environment:
       RABBITMQ_USER: "guest"
       RABBITMQ_PASSWORD: "guest"
       RABBITMQ_HOST: "rabbitmq"
       RABBITMQ_PORT: "5672"
       RABBITMQ_ROUTINGKEY: "buybook_search"
-      PYTHONPATH: "/usr/local/BuyBook:${PYTHONPATH}"
+      PYTHONPATH: "/usr/local/src"
     volumes:
-      - .:/usr/local/BuyBook
-      - D:\\workspace\\citest\\BuyBook\\buybook\\component\cURL.bash:/usr/local/BuyBook/buybook/component/cURL.bash
-    command: "python -m buybook.worker"
+      - ./buybook:/usr/local/src/buybook
+      - ./buybook/component:/usr/local/src/buybook/component
+#      - D:\\workspace\\citest\\BuyBook\\buybook\\component\cURL.bash:/usr/local/BuyBook/buybook/component/cURL.bash
+    command: "python /usr/local/src/buybook/worker.py"
     depends_on:
       - rabbitmq
 
   web_client:
-    image: buybook:1
+    image: flyhead/buybook:1
     ports:
       - "5000:5000"
     environment:
       FLASK_ENV: development
-      FLASK_APP: "buybook/web_client.py"
+      FLASK_APP: "/usr/local/src/buybook/web_client.py"
 #      ENV FLASK_RUN_HOST: "0.0.0.0"
       RABBITMQ_USER: "guest"
       RABBITMQ_PASSWORD: "guest"
       RABBITMQ_HOST: "rabbitmq"
       RABBITMQ_PORT: "5672"
       RABBITMQ_ROUTINGKEY: "buybook_search"
-      PYTHONPATH: "/usr/local/BuyBook:${PYTHONPATH}"
+      PYTHONPATH: "/usr/local/src"
     volumes:
-      - .:/usr/local/BuyBook
+      - ./buybook:/usr/local/src/buybook
     command: "python -m flask run -h 0.0.0.0"
     depends_on:
       - rabbitmq
